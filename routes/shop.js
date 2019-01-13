@@ -1,6 +1,6 @@
-const path = require('path');
+//const path = require('path');
 const express = require('express');
-const productController = require('../controllers/product');
+const shopController = require('../controllers/shopController');
 
 //const rootDir = require('../helpers/path');
 
@@ -8,6 +8,15 @@ const productController = require('../controllers/product');
 
 const router = express.Router();
 
-router.get('/', productController.getProducts);
+router.get('/', shopController.getProducts);
+
+router.get('/product-list', shopController.getProducts);
+
+router.get('/cart', shopController.getCart);
+
+router.get('/orders', shopController.getOrders);
+
+router.get('/checkout', shopController.getProducts);
+
 
 module.exports = router;
