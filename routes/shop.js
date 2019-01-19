@@ -8,11 +8,14 @@ const shopController = require('../controllers/shopController');
 
 const router = express.Router();
 
-router.get('/', shopController.getProducts);
-
-router.get('/product-list', shopController.getProducts);
+router.get('/', shopController.getIndex);
+router.get('/products/', shopController.getProducts);
+router.get('/products/:porductId', shopController.getProduct);
 
 router.get('/cart', shopController.getCart);
+
+router.post('/cart', shopController.postCart);
+
 
 router.get('/orders', shopController.getOrders);
 
