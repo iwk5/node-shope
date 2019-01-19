@@ -18,21 +18,29 @@ exports.getAddProduct = (req, res, next) => {
     const description = req.body.description;
 
     const product = new Product(title, imageUrl, price, description);
-    product.save();
-
-    res.redirect('/');
+    product
+    .save()
+    .then(() => {
+        res.redirect('/');
+    })
+    .catch(error => {
+        console.log(error);
+    });
 }
 
 exports.getProducts = (req, res, next) => {
-    // const products = productData.products;
-     Product.fetchAll((products) => {
-         res.render('admin/products',{
-             prods: products, 
-             pageTitle: 'admin Shop',
-             path: '/admin/products'
-         });
-     });
- }
+    Product.fetchAll()
+    .then( ([rows, fieldData]) => {
+       res.render('admin/products',{
+           prods: rows, 
+           pageTitle: 'Admin Shop',
+           path: '/admin/products'
+       });
+    })
+    .catch(error => {
+        console.log(error);
+    });
+}
 
  exports.getEditProduct = (req, res, next) => {
     const editMode = req.query.edit;

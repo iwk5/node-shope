@@ -10,14 +10,6 @@ const app = express();
 const adminRouter = require('./routes/admin');
 const shopRouter = require('./routes/shop');
 
-db.execute('select * from products')
-    .then(result => {
-        console.log(result);
-    }).catch(error => {
-        console.log(error);
-    });
-
-
 // tell to express to use pug template engin and show them view folder to render
 app.set('view engine','ejs');
 app.set('views','views');
