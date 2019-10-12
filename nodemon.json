@@ -1,7 +1,7 @@
 {
     "env": {
         "MONGO_USER": "wikibabu",
-        "MONGO_PASSWORD": "unlock1#M",
+        "MONGO_PASSWORD": "unlock1%M",
         "MONGO_DEFAULT_DATABASE": "shop",
         "STRIPE_KEY": "sk_test_dRkQj6GhtdeRMPltMttXBNn600LJ7d96yw"
     }
